@@ -42,6 +42,21 @@ class HomePage extends StatelessWidget {
             Text("❤　❤　❤　❤　❤"),
             RatingBar(
               initialRating: 3,
+              minRating: 1,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              itemCount: 5,
+              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+              itemBuilder: (context, _) => Icon(
+                Icons.favorite,
+                color: Colors.pink,
+              ),
+              onRatingUpdate: (rating) {
+                print(rating);
+              },
+            ),
+            RatingBar(
+              initialRating: 3,
               direction: Axis.horizontal,
               allowHalfRating: true,
               itemCount: 5,
