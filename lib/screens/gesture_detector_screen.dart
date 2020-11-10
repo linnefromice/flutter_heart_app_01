@@ -6,7 +6,6 @@ class GestureDetectorScreen extends StatefulWidget {
 }
 
 class _GestureDetectorScreenState extends State<GestureDetectorScreen> {
-  final globalKey = GlobalKey<ScaffoldState>();
   String _messageOnVerticalDragStart = "No gesture";
   String _messageOnVerticalDragUpdate = "No gesture";
   String _messageOnVerticalDragEnd = "No gesture";
@@ -35,7 +34,6 @@ class _GestureDetectorScreenState extends State<GestureDetectorScreen> {
               color: Colors.green,
               child: Center(
                 child: Column(
-
                   children: [
                     Text("onVerticalDragStart\n${_messageOnVerticalDragStart}"),
                     Text("onVerticalDragUpdate\n${_messageOnVerticalDragUpdate}"),
