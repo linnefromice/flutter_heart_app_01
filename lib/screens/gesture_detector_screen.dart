@@ -6,12 +6,10 @@ class GestureDetectorScreen extends StatefulWidget {
 }
 
 class _GestureDetectorScreenState extends State<GestureDetectorScreen> {
-  String _messageOnVerticalDragStart = "No gesture";
-  String _messageOnVerticalDragUpdate = "No gesture";
-  String _messageOnVerticalDragEnd = "No gesture";
-  String _messageOnHorizontalDragStart = "No gesture";
-  String _messageOnHorizontalDragUpdate = "No gesture";
-  String _messageOnHorizontalDragEnd = "No gesture";
+  double _positionXStart = 20;
+  double _positionYStart = 20;
+  double _positionXEnd = 380;
+  double _positionYEnd = 730;
 
   @override
   Widget build(BuildContext context) {
@@ -22,44 +20,63 @@ class _GestureDetectorScreenState extends State<GestureDetectorScreen> {
       body: Stack(
         children: [
           GestureDetector(
-            onVerticalDragStart: (details) => setState(() => _messageOnVerticalDragStart = "globalPosition:${details.globalPosition}" ),
-            onVerticalDragUpdate: (details) => setState(() => _messageOnVerticalDragUpdate = "globalPosition:${details.globalPosition}\ndelta:${details.delta}" ),
-            onVerticalDragEnd: (details) => setState(() => _messageOnVerticalDragEnd = "velocity:${details.velocity}" ),
-            onHorizontalDragStart: (details) => setState(() => _messageOnHorizontalDragStart = "globalPosition:${details.globalPosition}" ),
-            onHorizontalDragUpdate: (details) => setState(() => _messageOnHorizontalDragUpdate = "globalPosition:${details.globalPosition}\ndelta:${details.delta}" ),
-            onHorizontalDragEnd: (details) => setState(() => _messageOnHorizontalDragEnd = "velocity:${details.velocity}" ),
+            onVerticalDragStart: (details) {
+              print("onVerticalDragStart\nglobalPosition:${details.globalPosition}");
+              setState(() {
+                _positionXStart = details.localPosition.dx;
+                _positionYStart = details.localPosition.dy;
+              });
+            },
+            onVerticalDragUpdate: (details) {
+              print("onVerticalDragUpdate\nglobalPosition:${details.globalPosition}\ndelta:${details.delta}");
+              setState(() {
+                _positionXEnd = details.localPosition.dx;
+                _positionYEnd = details.localPosition.dy;
+              });
+            },
+            onVerticalDragEnd: (details) {
+              print("onVerticalDragEnd\nvelocity:${details.velocity}");
+            },
+            onHorizontalDragStart: (details) {
+              print("onHorizontalDragStart\nglobalPosition:${details.globalPosition}");
+              setState(() {
+                _positionXStart = details.globalPosition.dx;
+                _positionYStart = details.globalPosition.dy;
+              });
+            },
+            onHorizontalDragUpdate: (details) {
+              print("onHorizontalDragUpdate\nglobalPosition:${details.globalPosition}\ndelta:${details.delta}");
+              setState(() {
+                _positionXEnd = details.globalPosition.dx;
+                _positionYEnd = details.globalPosition.dy;
+              });
+            },
+            onHorizontalDragEnd: (details) {
+              print("onHorizontalDragEnd\nvelocity:${details.velocity}");
+            },
             child: Center(
               child: FractionallySizedBox(
-                widthFactor: 1.0,
-                heightFactor: 0.6,
+                widthFactor: 0.8,
+                heightFactor: 0.8,
                 child: Container(
-                  color: Colors.green,
+                  color: Colors.grey,
                   child: Center(
-                      child: Column(
-                        children: [
-                          Text("onVerticalDragStart\n${_messageOnVerticalDragStart}"),
-                          Text("onVerticalDragUpdate\n${_messageOnVerticalDragUpdate}"),
-                          Text("onVerticalDragEnd\n${_messageOnVerticalDragEnd}"),
-                          Text("onHorizontalDragStart\n${_messageOnHorizontalDragStart}"),
-                          Text("onHorizontalDragUpdate\n${_messageOnHorizontalDragUpdate}"),
-                          Text("onHorizontalDragEnd\n${_messageOnHorizontalDragEnd}"),
-                        ],
-                      )
+                    child: Text("GestureDetector area"),
                   ),
                 ),
               ),
             )
           ),
           Positioned(
-            left: 20,
-            top: 20,
+            left: _positionXStart,
+            top: _positionYStart,
             width: 10,
             height: 10,
             child: Container(color: Colors.blue),
           ),
           Positioned(
-            left: 380,
-            top: 730,
+            left: _positionXEnd,
+            top: _positionYEnd,
             width: 10,
             height: 10,
             child: Container(color: Colors.red),
