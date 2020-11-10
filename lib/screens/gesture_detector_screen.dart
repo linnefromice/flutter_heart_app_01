@@ -16,9 +16,11 @@ class _GestureDetectorScreenState extends State<GestureDetectorScreen> {
         title: Text('GestureDetector'),
       ),
       body: GestureDetector(
-        onTap: () {
-          setState(() => _message = "Tap" );
-        },
+        // onTap: () => setState(() => _message = "onTap" ),
+        onHorizontalDragDown: (details) => setState(() => _message = "onHorizontalDragDown\nglobalPosition = ${details.globalPosition}" ),
+        onVerticalDragDown: (details) => setState(() => _message = "onVerticalDragDown\nglobalPosition = ${details.globalPosition}" ),
+        // onVerticalDragStart: (details) => setState(() => _message = "onVerticalDragStart\nglobalPosition = ${details.globalPosition}" ),
+        // onVerticalDragEnd: (details) => setState(() => _message = "onVerticalDragEnd\nvelocity = ${details.velocity}" ),
         child: Center(
           child: FractionallySizedBox(
             widthFactor: 0.6,
