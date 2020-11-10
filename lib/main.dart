@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'screens/rating_screen.dart';
 
 void main() {
   runApp(App());
@@ -14,7 +14,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: HomePage(),
+      home: RatingScreen(),
     );
   }
 }
