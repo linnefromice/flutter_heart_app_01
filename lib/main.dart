@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/rating_screen.dart';
+import 'screens/gesture_detector_screen.dart';
 
 void main() {
   runApp(App());
@@ -14,7 +14,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: RatingScreen(),
+      home: GestureDetectorScreen(),
     );
   }
 }
