@@ -12,22 +12,17 @@ class _GestureDetectorScreenState extends State<GestureDetectorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: globalKey,
       appBar: AppBar(
         title: Text('GestureDetector'),
       ),
       body: GestureDetector(
         onTap: () {
-          setState(() {
-            _message = "Tap";
-          });
-          final snackBar = SnackBar(content: Text("Tap"));
-          globalKey.currentState.showSnackBar(snackBar);
+          setState(() => _message = "Tap" );
         },
         child: Center(
           child: FractionallySizedBox(
-            widthFactor: 0.8,
-            heightFactor: 0.8,
+            widthFactor: 0.6,
+            heightFactor: 0.6,
             child: Container(
               color: Colors.green,
               child: Center(
