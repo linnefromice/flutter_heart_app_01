@@ -7,6 +7,7 @@ class GestureDetectorScreenTwo extends StatefulWidget {
 
 class _State extends State<GestureDetectorScreenTwo> {
   Offset _offset = Offset(10,10);
+  Offset _offsetTwo = Offset(300,600);
   double _radians = 0.0;
   double _scale = 1.0;
 
@@ -64,6 +65,24 @@ class _State extends State<GestureDetectorScreenTwo> {
                   ),
                 ),
               ],
+            ),
+          ),
+          Positioned(
+            left: _offsetTwo.dx, // 移動の値（x）
+            top: _offsetTwo.dy, // 移動の値（y）
+            child: GestureDetector(
+              // ドラッグの移動を更新
+              onPanUpdate: (DragUpdateDetails details) {
+                setState(() {
+                  _offsetTwo = Offset(_offsetTwo.dx+details.delta.dx, _offsetTwo.dy+details.delta.dy);
+                });
+              },
+              child: Container(
+                color: Colors.red,
+                width: 100,
+                height: 100,
+                child: Center(child:Text('Pan\nx:${_offsetTwo.dx.toInt()}\ny:${_offsetTwo.dy.toInt()}'),),
+              ),
             ),
           ),
         ],
