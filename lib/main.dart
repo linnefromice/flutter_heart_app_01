@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'screens/gesture_detector_screen.dart';
+import 'package:linnefromice/screens/gesture_detector_screen.dart';
+import 'package:linnefromice/screens/home_screen.dart';
+import 'package:linnefromice/screens/rating_screen.dart';
+import 'package:linnefromice/screens/liquid_swipe_screen.dart';
 
 void main() {
   runApp(App());
@@ -14,7 +17,13 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: GestureDetectorScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomeScreen(),
+        '/rating': (context) => RatingScreen(),
+        '/gesture_detector': (context) => GestureDetectorScreen(),
+        '/liquid_swipe': (context) => LiquidSwipeScreen(),
+      },
     );
   }
 }
