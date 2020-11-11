@@ -72,10 +72,18 @@ class _State extends State<GestureDetectorScreenTwo> {
             top: _offsetTwo.dy, // 移動の値（y）
             child: GestureDetector(
               // ドラッグの移動を更新
-              onPanUpdate: (DragUpdateDetails details) {
+              onHorizontalDragUpdate: (DragUpdateDetails details) {
                 setState(() {
                   _offsetTwo = Offset(_offsetTwo.dx+details.delta.dx, _offsetTwo.dy+details.delta.dy);
                 });
+              },
+              onVerticalDragUpdate: (DragUpdateDetails details) {
+                do {
+                  setState(() {
+                    _offsetTwo = Offset(_offsetTwo.dx, _offsetTwo.dy + 10);
+                  });
+                } while (_offsetTwo.dy > 0);
+                // ↑これはちゃんと動かない
               },
               child: Container(
                 color: Colors.red,
