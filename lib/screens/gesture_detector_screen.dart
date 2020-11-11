@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class GestureDetectorScreen extends StatefulWidget {
   @override
-  _GestureDetectorScreenState createState() => _GestureDetectorScreenState();
+  _State createState() => _State();
 }
 
-class _GestureDetectorScreenState extends State<GestureDetectorScreen> {
+class _State extends State<GestureDetectorScreen> {
   double _positionXStart = 20;
   double _positionYStart = 20;
   double _positionXEnd = 380;
