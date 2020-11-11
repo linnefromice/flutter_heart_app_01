@@ -9,6 +9,10 @@ class LiquidSwipeScreen extends StatelessWidget {
         title: Text('GestureDetector'),
       ),
       body: LiquidSwipe(
+        enableSlideIcon: true,
+        slideIconWidget: Icon(Icons.subdirectory_arrow_left),
+        positionSlideIcon: 0.0,
+        // waveType: WaveType.circularReveal,
         pages: [
           Container(
             color: Colors.blue,
