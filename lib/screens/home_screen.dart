@@ -56,6 +56,14 @@ class HomeScreen extends StatelessWidget {
               child: Center(child: Text('LiquidSwipe')),
             ),
           ),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, '/flick'),
+            child: Container(
+              height: 50,
+              color: Colors.amber[100],
+              child: Center(child: Text('Flick')),
+            ),
+          ),
         ],
       ),
     );

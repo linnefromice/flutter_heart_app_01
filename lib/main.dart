@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:linnefromice/screens/flick_screen.dart';
 import 'package:linnefromice/screens/gesture_detector_screen.dart';
 import 'package:linnefromice/screens/gesture_detector_screen_two.dart';
 import 'package:linnefromice/screens/home_screen.dart';
@@ -25,6 +26,7 @@ class App extends StatelessWidget {
         '/gesture_detector': (context) => GestureDetectorScreen(),
         '/gesture_detector_two': (context) => GestureDetectorScreenTwo(),
         '/liquid_swipe': (context) => LiquidSwipeScreen(),
+        '/flick': (context) => FlickScreen(),
       },
     );
   }
