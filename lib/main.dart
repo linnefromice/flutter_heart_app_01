@@ -6,6 +6,7 @@ import 'package:linnefromice/screens/home_screen.dart';
 import 'package:linnefromice/screens/rating_screen.dart';
 import 'package:linnefromice/screens/liquid_swipe_screen.dart';
 
+GlobalKey view_global_key = GlobalKey();
 void main() {
   runApp(App());
 }
