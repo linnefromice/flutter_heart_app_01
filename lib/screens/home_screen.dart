@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, '/gesture_detector'),
             child: Container(
               height: 50,
-              color: Colors.amber[700],
+              color: Colors.amber[800],
               child: Center(child: Text('GestureDetector')),
             ),
           ),
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, '/gesture_detector_two'),
             child: Container(
               height: 50,
-              color: Colors.amber[500],
+              color: Colors.amber[700],
               child: Center(child: Text('GestureDetectorTwo')),
             ),
           ),
@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, '/liquid_swipe'),
             child: Container(
               height: 50,
-              color: Colors.amber[300],
+              color: Colors.amber[600],
               child: Center(child: Text('LiquidSwipe')),
             ),
           ),
@@ -60,7 +60,7 @@ class HomeScreen extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, '/flick'),
             child: Container(
               height: 50,
-              color: Colors.amber[100],
+              color: Colors.amber[500],
               child: Center(child: Text('Flick')),
             ),
           ),
