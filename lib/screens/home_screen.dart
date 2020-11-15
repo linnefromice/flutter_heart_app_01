@@ -61,7 +61,15 @@ class HomeScreen extends StatelessWidget {
               RatedHeart(rate: 1.0),
               RatedHeart(rate: 1.0),
               RatedHeart(rate: 0.7),
-              RatedHeart(rate: 0.0),
+              Container(
+                child: Center(
+                  child: Icon(
+                    Icons.favorite,
+                    size: 50,
+                    color: Colors.white,
+                  ),
+                )
+              ) // TODO: vacant heart
             ],
           )
         ],
@@ -118,7 +126,7 @@ class RatedHeart extends StatelessWidget {
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
         colors: [Colors.pink, Colors.white],
-        stops: [rate, rate],
+        stops: [rate, rate], // TODO: around 0.7 line to change color 
         tileMode: TileMode.mirror,
       ).createShader(bounds),
       child: Container(
