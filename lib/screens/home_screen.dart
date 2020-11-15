@@ -32,8 +32,37 @@ class HomeScreen extends StatelessWidget {
               child: Center(child: Text('RatingScreen')),
             ),
           ),
+          Container(
+            child: Center(
+              child: RadiantGradientMask(
+                child: Icon(
+                  Icons.favorite,
+                  size: 200,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          )
         ],
       ),
+    );
+  }
+}
+
+class RadiantGradientMask extends StatelessWidget {
+  RadiantGradientMask({this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return ShaderMask(
+      shaderCallback: (bounds) => RadialGradient(
+        center: Alignment.center,
+        radius: 0.5,
+        colors: [Colors.white, Colors.pink, Colors.white],
+        tileMode: TileMode.mirror,
+      ).createShader(bounds),
+      child: child,
     );
   }
 }
