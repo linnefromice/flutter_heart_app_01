@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:linnefromice/screens/flick_screen.dart';
-import 'package:linnefromice/screens/gesture_detector_screen.dart';
-import 'package:linnefromice/screens/gesture_detector_screen_two.dart';
 import 'package:linnefromice/screens/home_screen.dart';
 import 'package:linnefromice/screens/rating_screen.dart';
-import 'package:linnefromice/screens/liquid_swipe_screen.dart';
 
 GlobalKey view_global_key = GlobalKey();
 void main() {
@@ -24,10 +20,6 @@ class App extends StatelessWidget {
       routes: {
         '/': (context) => HomeScreen(),
         '/rating': (context) => RatingScreen(),
-        '/gesture_detector': (context) => GestureDetectorScreen(),
-        '/gesture_detector_two': (context) => GestureDetectorScreenTwo(),
-        '/liquid_swipe': (context) => LiquidSwipeScreen(),
-        '/flick': (context) => FlickScreen(),
       },
     );
   }
