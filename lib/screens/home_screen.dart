@@ -32,28 +32,6 @@ class HomeScreen extends StatelessWidget {
               child: Center(child: Text('RatingScreen')),
             ),
           ),
-          Container(
-            child: Center(
-              child: RadiantGradientMask(
-                child: Icon(
-                  Icons.favorite,
-                  size: 50,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-          Container(
-            child: Center(
-              child: LinearGradientMask(
-                child: Icon(
-                  Icons.favorite,
-                  size: 50,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -66,43 +44,6 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-class RadiantGradientMask extends StatelessWidget {
-  RadiantGradientMask({this.child});
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return ShaderMask(
-      shaderCallback: (bounds) => RadialGradient(
-        center: Alignment.center,
-        radius: 0.5,
-        colors: [Colors.white, Colors.pink, Colors.white],
-        tileMode: TileMode.mirror,
-      ).createShader(bounds),
-      child: child,
-    );
-  }
-}
-
-class LinearGradientMask extends StatelessWidget {
-  LinearGradientMask({this.child});
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return ShaderMask(
-      shaderCallback: (bounds) => LinearGradient(
-        begin: Alignment.centerLeft,
-        end: Alignment.centerRight,
-        colors: [Colors.pink, Colors.white],
-        stops: [0.7, 0.7],
-        tileMode: TileMode.mirror,
-      ).createShader(bounds),
-      child: child,
     );
   }
 }
