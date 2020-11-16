@@ -10,7 +10,7 @@ Widget _image(String asset) {
   );
 }
 
-class RatingScreen extends StatelessWidget {
+class RatingBarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +21,6 @@ class RatingScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("❤　❤　❤　❤　❤"),
               RatingBar(
                 initialRating: 3,
                 minRating: 1,

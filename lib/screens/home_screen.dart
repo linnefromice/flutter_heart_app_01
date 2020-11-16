@@ -17,128 +17,32 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             color: Colors.blue[600],
             alignment: Alignment.center,
-            child: Text('Hello World',
+            child: Text('Heart App',
                 style: Theme.of(context)
                     .textTheme
                     .headline4
                     .copyWith(color: Colors.white)),
             transform: Matrix4.rotationZ(0.1),
           ),
+          Text("Original"),
           GestureDetector(
-            onTap: () => Navigator.pushNamed(context, '/rating'),
+            onTap: () => Navigator.pushNamed(context, '/original_rating'),
             child: Container(
               height: 50,
               color: Colors.amber[900],
-              child: Center(child: Text('RatingScreen')),
+              child: Center(child: Text('OriginalRatingScreen')),
             ),
           ),
-          Container(
-            child: Center(
-              child: RadiantGradientMask(
-                child: Icon(
-                  Icons.favorite,
-                  size: 50,
-                  color: Colors.white,
-                ),
-              ),
+          Text("Other"),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, '/rating_bar'),
+            child: Container(
+              height: 50,
+              color: Colors.amber[800],
+              child: Center(child: Text('RatingBarScreen')),
             ),
           ),
-          Container(
-            child: Center(
-              child: LinearGradientMask(
-                child: Icon(
-                  Icons.favorite,
-                  size: 50,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              RatedHeart(rate: 1.0),
-              RatedHeart(rate: 1.0),
-              RatedHeart(rate: 1.0),
-              RatedHeart(rate: 0.7),
-              Container(
-                child: Center(
-                  child: Icon(
-                    Icons.favorite,
-                    size: 50,
-                    color: Colors.white,
-                  ),
-                )
-              ) // TODO: vacant heart
-            ],
-          )
         ],
-      ),
-    );
-  }
-}
-
-class RadiantGradientMask extends StatelessWidget {
-  RadiantGradientMask({this.child});
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return ShaderMask(
-      shaderCallback: (bounds) => RadialGradient(
-        center: Alignment.center,
-        radius: 0.5,
-        colors: [Colors.white, Colors.pink, Colors.white],
-        tileMode: TileMode.mirror,
-      ).createShader(bounds),
-      child: child,
-    );
-  }
-}
-
-class LinearGradientMask extends StatelessWidget {
-  LinearGradientMask({this.child});
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return ShaderMask(
-      shaderCallback: (bounds) => LinearGradient(
-        begin: Alignment.centerLeft,
-        end: Alignment.centerRight,
-        colors: [Colors.pink, Colors.white],
-        stops: [0.7, 0.7],
-        tileMode: TileMode.mirror,
-      ).createShader(bounds),
-      child: child,
-    );
-  }
-}
-
-class RatedHeart extends StatelessWidget {
-  RatedHeart({this.rate});
-  final double rate;
-
-  @override
-  Widget build(BuildContext context) {
-    return ShaderMask(
-      shaderCallback: (bounds) => LinearGradient(
-        begin: Alignment.centerLeft,
-        end: Alignment.centerRight,
-        colors: [Colors.pink, Colors.white],
-        stops: [rate, rate], // TODO: around 0.7 line to change color 
-        tileMode: TileMode.mirror,
-      ).createShader(bounds),
-      child: Container(
-        child: Center(
-          child: LinearGradientMask(
-            child: Icon(
-              Icons.favorite,
-              size: 50,
-              color: Colors.white,
-            ),
-          ),
-        ),
       ),
     );
   }

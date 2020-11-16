@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:linnefromice/screens/home_screen.dart';
-import 'package:linnefromice/screens/rating_screen.dart';
+import 'package:linnefromice/screens/original_rating_screen.dart';
+import 'package:linnefromice/screens/rating_bar_screen.dart';
 
 GlobalKey view_global_key = GlobalKey();
 void main() {
@@ -19,7 +20,8 @@ class App extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => HomeScreen(),
-        '/rating': (context) => RatingScreen(),
+        '/original_rating': (context) => OriginalRatingScreen(),
+        '/rating_bar': (context) => RatingBarScreen(),
       },
     );
   }
