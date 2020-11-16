@@ -25,51 +25,22 @@ class HomeScreen extends StatelessWidget {
             transform: Matrix4.rotationZ(0.1),
           ),
           GestureDetector(
-            onTap: () => Navigator.pushNamed(context, '/rating'),
+            onTap: () => Navigator.pushNamed(context, '/original_rating'),
             child: Container(
               height: 50,
               color: Colors.amber[900],
-              child: Center(child: Text('RatingScreen')),
+              child: Center(child: Text('OriginalRatingScreen')),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              RatedHeart(rate: 1.0),
-              RatedHeart(rate: 0.7),
-              RatedHeart(rate: 0.4),
-              RatedHeart(rate: 0.1),
-              RatedHeart(rate: 0.0),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class RatedHeart extends StatelessWidget {
-  RatedHeart({this.rate});
-  final double rate;
-
-  @override
-  Widget build(BuildContext context) {
-    return ShaderMask(
-      shaderCallback: (bounds) => LinearGradient(
-        begin: Alignment.centerLeft,
-        end: Alignment.centerRight,
-        colors: [Colors.pink, Colors.white],
-        stops: [rate, rate],
-        tileMode: TileMode.mirror,
-      ).createShader(bounds),
-      child: Container(
-        child: Center(
-          child: Icon(
-            Icons.favorite,
-            size: 50,
-            color: Colors.white,
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, '/rating_bar'),
+            child: Container(
+              height: 50,
+              color: Colors.amber[800],
+              child: Center(child: Text('RatingBarScreen')),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
