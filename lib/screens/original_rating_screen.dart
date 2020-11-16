@@ -14,11 +14,11 @@ class OriginalRatingScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  RatedHeart(rate: 1.0),
-                  RatedHeart(rate: 0.7),
-                  RatedHeart(rate: 0.4),
-                  RatedHeart(rate: 0.1),
-                  RatedHeart(rate: 0.0),
+                  RatedHeart(rate: 1.0, color: Colors.pink),
+                  RatedHeart(rate: 0.7, color: Colors.pink),
+                  RatedHeart(rate: 0.4, color: Colors.pink),
+                  RatedHeart(rate: 0.1, color: Colors.pink),
+                  RatedHeart(rate: 0.0, color: Colors.pink),
                 ],
               ),
             ],
@@ -35,8 +35,9 @@ class OriginalRatingScreen extends StatelessWidget {
 
 
 class RatedHeart extends StatelessWidget {
-  RatedHeart({this.rate});
+  RatedHeart({this.rate, this.color});
   final double rate;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class RatedHeart extends StatelessWidget {
       shaderCallback: (bounds) => LinearGradient(
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
-        colors: [Colors.pink, Colors.white],
+        colors: [color, Colors.white],
         stops: [rate, rate],
         tileMode: TileMode.mirror,
       ).createShader(bounds),
