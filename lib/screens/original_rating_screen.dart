@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
-class OriginalRatingScreen extends StatelessWidget {
+class OriginalRatingScreen extends StatefulWidget {
+  @override
+  _State createState() => _State();
+}
+
+class _State extends State<OriginalRatingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
