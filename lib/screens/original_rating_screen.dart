@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class OriginalRatingScreen extends StatefulWidget {
@@ -6,6 +8,14 @@ class OriginalRatingScreen extends StatefulWidget {
 }
 
 class _State extends State<OriginalRatingScreen> {
+  double _currentSliderValue;
+
+  @override
+  void initState() {
+    _currentSliderValue = 2.5;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,14 +26,21 @@ class _State extends State<OriginalRatingScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Slider(
+                value: _currentSliderValue,
+                min: 0.0,
+                max: 5.0,
+                label: _currentSliderValue.round().toString(),
+                onChanged: (double value) => setState(() => _currentSliderValue = value),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  RatedHeart(rate: 1.0, color: Colors.pink),
-                  RatedHeart(rate: 0.7, color: Colors.pink),
-                  RatedHeart(rate: 0.4, color: Colors.pink),
-                  RatedHeart(rate: 0.1, color: Colors.pink),
-                  RatedHeart(rate: 0.0, color: Colors.pink),
+                  RatedHeart(rate: min(1, max(0, _currentSliderValue)), color: Colors.pink),
+                  RatedHeart(rate: min(1, max(0, _currentSliderValue - 1)), color: Colors.pink),
+                  RatedHeart(rate: min(1, max(0, _currentSliderValue - 2)), color: Colors.pink),
+                  RatedHeart(rate: min(1, max(0, _currentSliderValue - 3)), color: Colors.pink),
+                  RatedHeart(rate: min(1, max(0, _currentSliderValue - 4)), color: Colors.pink),
                 ],
               ),
               Row(
