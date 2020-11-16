@@ -41,6 +41,24 @@ class RatedHeart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return RatedIcon(
+      iconData: Icons.favorite,
+      size: 50,
+      rate: rate,
+      color: color
+    );
+  }
+}
+
+class RatedIcon extends StatelessWidget {
+  RatedIcon({this.iconData, this.size, this.rate, this.color});
+  final IconData iconData;
+  final double size;
+  final double rate;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
     return ShaderMask(
       shaderCallback: (bounds) => LinearGradient(
         begin: Alignment.centerLeft,
@@ -52,8 +70,8 @@ class RatedHeart extends StatelessWidget {
       child: Container(
         child: Center(
           child: Icon(
-            Icons.favorite,
-            size: 50,
+            iconData,
+            size: size,
             color: Colors.white,
           ),
         ),
