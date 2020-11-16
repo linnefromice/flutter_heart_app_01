@@ -33,12 +33,20 @@ class HomeScreen extends StatelessWidget {
               child: Center(child: Text('OriginalRatingScreen')),
             ),
           ),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, '/custom_animation'),
+            child: Container(
+              height: 50,
+              color: Colors.amber[800],
+              child: Center(child: Text('CustomAnimationScreen')),
+            ),
+          ),
           Text("Other"),
           GestureDetector(
             onTap: () => Navigator.pushNamed(context, '/rating_bar'),
             child: Container(
               height: 50,
-              color: Colors.amber[800],
+              color: Colors.amber[100],
               child: Center(child: Text('RatingBarScreen')),
             ),
           ),
