@@ -21,6 +21,24 @@ class OriginalRatingScreen extends StatelessWidget {
                   RatedHeart(rate: 0.0, color: Colors.pink),
                 ],
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RatedHeart(rate: 1.0, color: Colors.red),
+                  RatedHeart(rate: 1.0, color: Colors.blue),
+                  RatedHeart(rate: 1.0, color: Colors.green),
+                  RatedHeart(rate: 1.0, color: Colors.yellow),
+                  RatedHeart(rate: 0.25, color: Colors.purple),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RatedIcon(iconData: Icons.star, size: 100, rate: 1.0, color: Colors.yellow),
+                  RatedIcon(iconData: Icons.star, size: 100, rate: 1.0, color: Colors.yellow),
+                  RatedIcon(iconData: Icons.star, size: 100, rate: 0.75, color: Colors.yellow)
+                ],
+              ),
             ],
           )
       ),
