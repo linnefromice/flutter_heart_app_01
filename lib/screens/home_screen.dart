@@ -17,13 +17,14 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             color: Colors.blue[600],
             alignment: Alignment.center,
-            child: Text('Hello World',
+            child: Text('Heart App',
                 style: Theme.of(context)
                     .textTheme
                     .headline4
                     .copyWith(color: Colors.white)),
             transform: Matrix4.rotationZ(0.1),
           ),
+          Text("Original"),
           GestureDetector(
             onTap: () => Navigator.pushNamed(context, '/original_rating'),
             child: Container(
@@ -32,6 +33,7 @@ class HomeScreen extends StatelessWidget {
               child: Center(child: Text('OriginalRatingScreen')),
             ),
           ),
+          Text("Other"),
           GestureDetector(
             onTap: () => Navigator.pushNamed(context, '/rating_bar'),
             child: Container(
