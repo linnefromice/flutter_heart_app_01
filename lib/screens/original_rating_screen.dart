@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart';
 
 class OriginalRatingScreen extends StatefulWidget {
   @override
@@ -42,6 +43,12 @@ class _State extends State<OriginalRatingScreen> {
                   RatedHeart(rate: min(1, max(0, _currentSliderValue - 3)), color: Colors.pink),
                   RatedHeart(rate: min(1, max(0, _currentSliderValue - 4)), color: Colors.pink),
                 ],
+              ),
+              Center(
+                child: Badge(
+                  badgeContent: Text(_currentSliderValue.toInt().toString()),
+                  child: Icon(Icons.favorite),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
