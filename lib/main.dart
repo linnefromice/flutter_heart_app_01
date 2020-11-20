@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:linnefromice/screens/custom_animation_by_mono_screen.dart';
 import 'package:linnefromice/screens/custom_animation_screen.dart';
 import 'package:linnefromice/screens/home_screen.dart';
 import 'package:linnefromice/screens/original_rating_screen.dart';
@@ -24,6 +25,7 @@ class App extends StatelessWidget {
         '/original_rating': (context) => OriginalRatingScreen(),
         '/custom_animation': (context) => CustomAnimationScreen(),
         '/rating_bar': (context) => RatingBarScreen(),
+        '/custom_animation_by_mono': (context) => CustomAnimationByMonoScreen(),
       },
     );
   }
