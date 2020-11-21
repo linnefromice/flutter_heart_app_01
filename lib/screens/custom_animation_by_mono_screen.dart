@@ -1,35 +1,6 @@
 import 'package:flutter/material.dart';
-
-// begin -> 白　-> end と変化する
-class GhostFadeTween extends Tween<Color> {
-  GhostFadeTween({
-    Color begin,
-    Color end,
-  }) : super(
-    begin: begin,
-    end: end,
-  );
-  final middle = Colors.white;
-
-  @override
-  Color lerp(double t) {
-    if (t < 0.5) {
-      return Color.lerp(begin, middle, t * 2);
-    } else {
-      return Color.lerp(middle, end, (t - 0.5) * 2);
-    }
-  }
-}
-
-class SwitchStringTween extends Tween<String> {
-  SwitchStringTween({
-    String begin,
-    String end,
-  }) : super(begin: begin, end: end);
-
-  @override
-  String lerp(double t) => t < 0.5 ? begin : end;
-}
+import 'package:linnefromice/utils/tweens/ghost_fade_tween.dart';
+import 'package:linnefromice/utils/tweens/switch_string_tween.dart';
 
 class CustomAnimationByMonoScreen extends StatefulWidget {
   @override
