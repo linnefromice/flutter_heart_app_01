@@ -1,5 +1,25 @@
 import 'package:flutter/material.dart';
 
+class GhostFadeTween extends Tween<Color> {
+  GhostFadeTween({
+    Color begin,
+    Color end,
+  }) : super(
+    begin: begin,
+    end: end,
+  );
+  final middle = Colors.white;
+
+  @override
+  Color lerp(double t) {
+    if (t < 0.5) {
+      return Color.lerp(begin, middle, t * 2);
+    } else {
+      return Color.lerp(middle, end, (t - 0.5) * 2);
+    }
+  }
+}
+
 class CustomAnimationByMonoScreen extends StatefulWidget {
   @override
   _State createState() => _State();
@@ -17,6 +37,7 @@ class _State extends State<CustomAnimationByMonoScreen> with SingleTickerProvide
     Colors.blue,
     Colors.red,
   ];
+
   var _index = 0;
   String get _currentText => _texts[_index % 3];
   Color get _currentColor => _colors[_index % 3];
