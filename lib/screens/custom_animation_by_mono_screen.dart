@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// begin -> 白　-> end と変化する
 class GhostFadeTween extends Tween<Color> {
   GhostFadeTween({
     Color begin,
@@ -53,7 +54,8 @@ class _State extends State<CustomAnimationByMonoScreen> with SingleTickerProvide
   Color get _currentColor => _colors[_index % 3];
 
   AnimationController _animation;
-  ColorTween _colorTween;
+  GhostFadeTween _colorTween;
+  SwitchStringTween _stringTween;
 
   @override
   void initState() {
@@ -64,7 +66,11 @@ class _State extends State<CustomAnimationByMonoScreen> with SingleTickerProvide
     )..addListener(() {
       setState(() {});
     });
-    _colorTween = ColorTween(end: _currentColor);
+    _colorTween = GhostFadeTween(end: _currentColor);
+    _stringTween = SwitchStringTween(
+      begin: _currentText,
+      end: _currentText
+    );
   }
 
   @override
@@ -83,9 +89,13 @@ class _State extends State<CustomAnimationByMonoScreen> with SingleTickerProvide
         onPressed: () {
           setState(() {
             _index++;
-            _colorTween = ColorTween(
+            _colorTween = GhostFadeTween(
               begin: _colorTween.end,
               end: _currentColor
+            );
+            _stringTween = SwitchStringTween(
+              begin: _stringTween.end,
+              end: _currentText,
             );
           });
           _animation.forward(from: 0);
@@ -94,7 +104,7 @@ class _State extends State<CustomAnimationByMonoScreen> with SingleTickerProvide
       ),
       body: Center(
         child: Text(
-          _currentText,
+          _stringTween.evaluate(_animation),
           style: Theme.of(context).textTheme.title.copyWith(
             color: _colorTween.evaluate(_animation),
           ),
