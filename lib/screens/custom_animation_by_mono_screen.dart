@@ -20,6 +20,16 @@ class GhostFadeTween extends Tween<Color> {
   }
 }
 
+class SwitchStringTween extends Tween<String> {
+  SwitchStringTween({
+    String begin,
+    String end,
+  }) : super(begin: begin, end: end);
+
+  @override
+  String lerp(double t) => t < 0.5 ? begin : end;
+}
+
 class CustomAnimationByMonoScreen extends StatefulWidget {
   @override
   _State createState() => _State();
